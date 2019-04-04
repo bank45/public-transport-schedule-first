@@ -23,7 +23,7 @@ export default class Parent extends Component {
   render() {
     return (
             <div>
-                <h1>родительская компонента</h1>
+                <h1>родительский компонент</h1>
                 <Paragraph1 plan1={this.state.plan1} />
                 <Paragraph2 plan2={this.state.plan2} />
 

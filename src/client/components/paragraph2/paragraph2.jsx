@@ -11,7 +11,7 @@ class Paragraph2 extends Component {
   render() {
     return (
       <div >
-        <h1>дочерняя компонента 2</h1>
+        <h1>дочерний компонент 2</h1>
         <ul>
           {this.props.plan2.map((str, index) => <li key={index}>{str}</li>)}
         </ul>

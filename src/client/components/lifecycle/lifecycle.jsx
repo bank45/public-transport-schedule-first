@@ -8,6 +8,7 @@ import { startRaspAC, addRaspAC, addCoutriAC } from '../../redux/actions/app-act
 import { PAGES } from '../../routes/pages';
 import Tablo from '../tablo/tablo';
 import './style.css';
+import {Button} from 'react-bootstrap'
 
 const Statmod = require('../../models/stations');
 
@@ -29,12 +30,14 @@ class Lifecycle extends React.Component {
 
   
   raspFetch = async (e) => {
-    e.preventDefault();
+    e.persist()
+    const savedEvent = e;
+    savedEvent.preventDefault();
     await this.props.startRaspMethod();
     // console.log('from:', e.target.from.value);
     // console.log('to:', e.target.to.value);
 
-    const formData = new FormData(e.target);
+    const formData = new FormData(savedEvent.target);
     const obj = {};
 
     formData.forEach(async function (value, key) {
@@ -95,7 +98,7 @@ class Lifecycle extends React.Component {
             <input name='transport' />
           </div>
           <div className='divForm'>
-            <button type='submit'>Расписание</button>
+            <Button variant='primary' type='submit'>Расписание</Button>
           </div>
         </form>
 
