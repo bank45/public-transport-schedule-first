@@ -77,8 +77,8 @@ router.get('/rasp', async (req, res) => {
 
 router.get('/user', (req, res) => {
   setTimeout(() => res.send({
-    name: 'Michael',
-    email: 'mk@elbrusboot.camp'
+    name: 'Aleksander',
+    email: 'bank45@yandex.ru'
   }), 1000);
 });
 

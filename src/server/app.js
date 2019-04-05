@@ -61,7 +61,7 @@ app.use('*', (req, res) => {
     'utf8',
   ));
   const context = {
-    title: 'Express React Skeleton'
+    title: 'Schedule transport'
   };
   res.send(template(context));
 });

@@ -19,7 +19,7 @@ const sagaMiddleware = createSagaMiddleware();
 
 const initialState = {
   // app: {
-  //   name: 'Express React Skeleton',
+  //   name: 'Express React',
   //   say: 'nothing for now'
   // }
 };

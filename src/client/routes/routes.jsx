@@ -9,7 +9,7 @@ import Lifecycle from '../components/lifecycle/lifecycle';
 import Page404 from '../components/page404/page404';
 
 const WrappedApp = (Component, props) => (
-  <App appName='Fancy React Redux App'>
+  <App appName='Schedule transport App'>
     <Component { ...props } />
   </App>
 );

@@ -8,7 +8,8 @@ import { startRaspAC, addRaspAC, addCoutriAC } from '../../redux/actions/app-act
 import { PAGES } from '../../routes/pages';
 import Tablo from '../tablo/tablo';
 import './style.css';
-import {Button} from 'react-bootstrap'
+import { Button, Form } from 'react-bootstrap'
+// import Form from 'react-bootstrap/FormGroup';
 
 const Statmod = require('../../models/stations');
 
@@ -22,13 +23,13 @@ class Lifecycle extends React.Component {
       date: ''
     };
   }
-  
+
   static propTypes = {
     startRaspMethod: Type.func
   }
-  
 
-  
+
+
   raspFetch = async (e) => {
     e.persist()
     const savedEvent = e;
@@ -46,13 +47,13 @@ class Lifecycle extends React.Component {
 
     //  const { startRaspMethod } = this.props;
     // try {
-  
-      // axios.get('/api/thread')
-      const response = await fetch('/api/rasp', {
-        method: 'POST',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
+
+    // axios.get('/api/thread')
+    const response = await fetch('/api/rasp', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify(obj)
     });
@@ -61,46 +62,44 @@ class Lifecycle extends React.Component {
     // this.props.addRaspMethod(this.state.raspisanie);
     // this.setState({ raspisanie: respBody.segments });
     // await this.props.addRaspMethod();
-    
+
     for (let i of respBody.segments) {
       console.log(i)
       await this.props.addRaspMethod(i);
     }
-    
-    
+
+
     //  console.log('this.props.raspisanie', this.props.raspisanie)
   }
-  
-  componentDidMount(){
-    
+
+  componentDidMount() {
+
   }
-  
+
   render() {
     return (
       <div >
         <h3>Форма расписания</h3>
 
-        <form id='containerRasp' onSubmit={this.raspFetch}>
-          <div className='divForm' id='from'>
-            <label>from</label>
-            <input name='from' />
-          </div>
-          <div className='divForm' id='to'>
-            <label>to</label>
-            <input name='to' />
-          </div>
-          <div className='divForm' id='date'>
-            <label>date</label>
-            <input name='date' />
-          </div>
-          <div className='divForm' id='transport'>
-            <label>transport</label>
-            <input name='transport' />
-          </div>
-          <div className='divForm'>
+        <Form id='containerRasp' onSubmit={this.raspFetch}>
+          <Form.Group>
+            <Form.Text className='text-muted'>from</Form.Text>
+            <Form.Control type='text' name='from' />
+          </Form.Group>
+          <Form.Group className='divForm' id='to'>
+            <Form.Text>to</Form.Text>
+            <Form.Control type='text' name='to' />
+          </Form.Group>
+          <Form.Group type='Date' className='divForm' id='date'>
+            <Form.Text>date</Form.Text>
+            <Form.Control name='date' />
+          </Form.Group>
+          <Form.Group className='divForm' id='transport'>
+            <Form.Text>transport</Form.Text>
+            <Form.Control name='transport' />
+          </Form.Group>
             <Button variant='primary' type='submit'>Расписание</Button>
-          </div>
-        </form>
+        </Form>
 
 
         {/* <div><button onClick={this.raspFetch}>rasp</button></div> */}

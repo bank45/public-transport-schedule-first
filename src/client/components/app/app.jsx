@@ -46,12 +46,13 @@ export default class App extends Component {
       <div className={cn('menu')}>
         <div className={cn('menu-logo')}>
         </div>
-        <Navbar bg='dark' variant='dark' className={cn('menu-list')}>
+        <Navbar bg='light' variant='light' className={cn('menu-list')}>
+          <Navbar.Brand>API</Navbar.Brand>
           <Nav className='mr-auto'>
-            <Nav.Link className='menuDiv'><Link to={PAGES.home.path}>Home Page</Link></Nav.Link>
-            <Nav.Link className='menuDiv'><Link to={PAGES.page404.path}>Page 404</Link></Nav.Link>
-            <Nav.Link className='menuDiv'><Link to={PAGES.parent.path}>родительский компонент</Link></Nav.Link>
-            <Nav.Link className='menuDiv'><Link to={PAGES.lifecycle.path}>Расписание</Link></Nav.Link>
+            <Nav.Link href={PAGES.home.path}>Home Page</Nav.Link>
+            <Nav.Link href={PAGES.lifecycle.path}>Расписание</Nav.Link>
+            {/* <Nav className='menuDiv'><Link to={PAGES.page404.path}>Page 404</Link></Nav> */}
+            <Nav.Link href={PAGES.parent.path}>родительский компонент</Nav.Link>
           </Nav>
         </Navbar>
       </div>
